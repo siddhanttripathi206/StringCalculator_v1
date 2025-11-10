@@ -43,7 +43,7 @@ public class StringCalculator
     }*/
 
     //5. Supporting custom Delimeter
-    public int add(String numbers) {
+    /*public int add(String numbers) {
         if (numbers.isEmpty())
         {
             return 0;
@@ -62,7 +62,49 @@ public class StringCalculator
             sum = sum + Integer.parseInt(p);
         }
         return sum;
+    }*/
+
+    //6. negative number
+    public int add(String numbers) {
+        if (numbers.isEmpty())
+        {
+            return 0;
+        }
+
+        String delimiter = "[,\n]";
+        if (numbers.startsWith("//"))
+        {
+            int delimiterIndex = numbers.indexOf("\n");
+            delimiter = numbers.substring(2, delimiterIndex);
+            numbers = numbers.substring(delimiterIndex + 1);
+        }
+
+        String[] parts = numbers.split(delimiter);
+        int sum = 0;
+        StringBuilder negatives = new StringBuilder();
+
+        for (String p : parts)
+        {
+            int num = Integer.parseInt(p);
+            if (num < 0)
+            {
+                if (negatives.length() > 0)
+                {
+                    negatives.append(",");
+                    negatives.append(num);
+                }
+
+            }
+            sum = sum + num;
+        }
+
+        if (negatives.length() > 0) {
+            throw new IllegalArgumentException("negatives not allowed: " + negatives);
+        }
+
+        return sum;
     }
+
 
 
 
