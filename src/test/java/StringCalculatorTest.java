@@ -45,4 +45,13 @@ public class StringCalculatorTest
         assertEquals(10, result);
     }
 
+    //5.Handling new line as delimiter
+    @Test
+    void handlingNewLineAsDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1\n2,3");
+        assertEquals(6, result);
+    }
+
+
 }
