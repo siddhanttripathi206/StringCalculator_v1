@@ -36,4 +36,13 @@ public class StringCalculatorTest
         int result = stringCalculator.add("1,2");
         assertEquals(3,result);
     }
+
+    //4. Handling more than 2 numbers.
+    @Test
+    void handlingMultipleNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1,2,3,4");
+        assertEquals(10, result);
+    }
+
 }
