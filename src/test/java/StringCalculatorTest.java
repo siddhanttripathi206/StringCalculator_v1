@@ -14,4 +14,15 @@ public class StringCalculatorTest
         int result = stringCalculator.add("");
         assertEquals(0,result);
     }
+
+    /*
+    2. Handle single number
+     */
+    @Test
+    void singleNumber()
+    {
+        StringCalculator stringCalculator = new StringCalculator();
+        int result = stringCalculator.add("1");
+        assertEquals(1,result);
+    }
 }
