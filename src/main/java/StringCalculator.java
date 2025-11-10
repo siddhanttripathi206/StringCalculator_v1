@@ -16,7 +16,7 @@ public class StringCalculator
     }*/
 
     //3. Handling more than 2 numbers
-    public int add(String numbers) {
+    /*public int add(String numbers) {
         if (numbers.isEmpty()) return 0;
 
         String[] parts = numbers.split(",");
@@ -25,7 +25,23 @@ public class StringCalculator
             sum += Integer.parseInt(p);
         }
         return sum;
+    }*/
+
+    //4. handling new line as delimiter
+    public int add(String numbers) {
+        if (numbers.isEmpty())
+        {
+            return 0;
+        }
+
+        String[] parts = numbers.split("[,\n]");
+        int sum = 0;
+        for (String p : parts) {
+            sum = sum + Integer.parseInt(p);
+        }
+        return sum;
     }
+
 
 
 }
