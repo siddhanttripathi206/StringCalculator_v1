@@ -65,15 +65,15 @@ public class StringCalculator
     }*/
 
     //6. negative number
+    private int callCount = 0;
+
     public int add(String numbers) {
-        if (numbers.isEmpty())
-        {
-            return 0;
-        }
+        callCount++;
+
+        if (numbers.isEmpty()) return 0;
 
         String delimiter = "[,\n]";
-        if (numbers.startsWith("//"))
-        {
+        if (numbers.startsWith("//")) {
             int delimiterIndex = numbers.indexOf("\n");
             delimiter = numbers.substring(2, delimiterIndex);
             numbers = numbers.substring(delimiterIndex + 1);
@@ -83,19 +83,13 @@ public class StringCalculator
         int sum = 0;
         StringBuilder negatives = new StringBuilder();
 
-        for (String p : parts)
-        {
+        for (String p : parts) {
             int num = Integer.parseInt(p);
-            if (num < 0)
-            {
-                if (negatives.length() > 0)
-                {
-                    negatives.append(",");
-                    negatives.append(num);
-                }
-
+            if (num < 0) {
+                if (negatives.length() > 0) negatives.append(",");
+                negatives.append(num);
             }
-            sum = sum + num;
+            sum += num;
         }
 
         if (negatives.length() > 0) {
@@ -104,6 +98,12 @@ public class StringCalculator
 
         return sum;
     }
+
+    public int getCalledCount() {
+        return callCount;
+    }
+
+
 
 
 
