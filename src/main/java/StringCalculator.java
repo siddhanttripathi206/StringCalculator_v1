@@ -28,13 +28,35 @@ public class StringCalculator
     }*/
 
     //4. handling new line as delimiter
-    public int add(String numbers) {
+    /*public int add(String numbers) {
         if (numbers.isEmpty())
         {
             return 0;
         }
 
         String[] parts = numbers.split("[,\n]");
+        int sum = 0;
+        for (String p : parts) {
+            sum = sum + Integer.parseInt(p);
+        }
+        return sum;
+    }*/
+
+    //5. Supporting custom Delimeter
+    public int add(String numbers) {
+        if (numbers.isEmpty())
+        {
+            return 0;
+        }
+
+        String delimiter = "[,\n]";
+        if (numbers.startsWith("//")) {
+            int delimiterIndex = numbers.indexOf("\n");
+            delimiter = numbers.substring(2, delimiterIndex);
+            numbers = numbers.substring(delimiterIndex + 1);
+        }
+
+        String[] parts = numbers.split(delimiter);
         int sum = 0;
         for (String p : parts) {
             sum = sum + Integer.parseInt(p);
