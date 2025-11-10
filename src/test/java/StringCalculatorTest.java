@@ -25,4 +25,15 @@ public class StringCalculatorTest
         int result = stringCalculator.add("1");
         assertEquals(1,result);
     }
+
+    /*
+    3. Handling 2 numbers
+     */
+    @Test
+    void handling2Numbers()
+    {
+        StringCalculator stringCalculator = new StringCalculator();
+        int result = stringCalculator.add("1,2");
+        assertEquals(3,result);
+    }
 }
