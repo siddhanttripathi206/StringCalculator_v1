@@ -72,5 +72,15 @@ public class StringCalculatorTest
     }
 
 
+    //8. returning number of times add() was called
+    @Test
+    void shouldReturnNumberOfTimesAddWasCalled() {
+        StringCalculator calculator = new StringCalculator();
+        calculator.add("1,2");
+        calculator.add("3,4");
+        assertEquals(2, calculator.getCalledCount());
+    }
+
+
 
 }
