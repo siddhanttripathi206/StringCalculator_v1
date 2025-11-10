@@ -53,5 +53,13 @@ public class StringCalculatorTest
         assertEquals(6, result);
     }
 
+    //6. Handling Support custom delimiters
+    @Test
+    void supportingCustomDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("//;\n1;2");
+        assertEquals(3, result);
+    }
+
 
 }
